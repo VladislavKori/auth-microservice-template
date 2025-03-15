@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package grpc;
+
+service Auth {
+  rpc register (RegisterRequest) returns (RegisterReply) {}  
+  rpc login (LoginRequest) returns (LoginReply) {}  
+  rpc check (CheckRequest) returns (CheckReply) {}  
+}
+
+message Error {
+  string message = 1;
+}
+
+message UserDTO {
+  int64 id = 1;
+  string email = 2;
+}
+
+message RegisterRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message RegisterReply {
+  UserDTO user = 1;
+  string authToken = 2;
+  Error error = 3;
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginReply {
+  UserDTO user = 1;
+  string authToken = 2;
+  Error error = 3;
+}
+
+message CheckRequest {
+  string cookie = 1;
+}
+
+message CheckReply {
+  UserDTO user = 1;
+  Error error = 2;
+}

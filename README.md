@@ -1,10 +1,10 @@
-## Auth Service Template - NodeJS(fastify) + TS + postgresql
+## Auth Service Template - NodeJS(@grpc/grpc-js) + TS + postgresql
 The template can be used as a starting point for creating a complete authentication microservice.
 
-the service implements three http routes
-- ```POST /v1/register```
-- ```POST /v1/login```
-- ```GET /v1/check```
+the service implements three methods
+- ```register```
+- ```login```
+- ```check```
 
 The service utilizes a minimum required database schema that includes fields: 
 - ```id``` (unique user ID)
